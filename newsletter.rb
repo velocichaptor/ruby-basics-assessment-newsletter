@@ -22,31 +22,33 @@ ARTICLES = [
   {"author": "Michale Bruen Boehm", "title": "Consulting", "text": "Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only."},
   {"author": "Tony Keeling Cartwright", "title": "Design", "text": "Often people, especially computer engineers, focus on the machines. But in fact we need to focus on humans, on how humans care about doing programming or operating the application of the machines."},
 ]
-
 #########################
 # Methods to generate the newsletter
 #########################
 
 def calculate_recipients
-  # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
-  # write a method that will return an array of only the subscribers who haven't unsubscribed
+  SUBSCRIBERS - UNSUBSCRIBED
 end
+# binding.pry
 
-def first_n_articles(number_of_articles
-  ARTICLES.first(number_of_articles)
+def first_n_articles(number_of_articles)
+  ARTICLES.map#(number_of_articles)
 end
 
 def print_recipients
-  # Write a method that uses the output of calculate_recipients
-  # and returns a list of emails separated by commas
-  # Ex) "abc@email.com, def@email.com, ghi@email.com"
+  p calculate_recipients.join(", ")
 end
+#  binding.pry
 
 def print_one_article(article)
-  # Write a method that will take an article hash
-  # and print the title, author and text as a formatted string
-  # See the README/sample output for examples
+  puts "#{articles[:title]} 
+        by: #{articles[:author]} 
+        #{articles[:text]}"
+  #I don't know if I ever got to formatting output of printing values from a hash...
+  #I'm pretty sure this and the following method require an enumerbale iterator like each or map to retrieve the k:v pair from the nested hashes in ARTICLES. But I ran out of time.
 end
+
+binding.pry
 
 def print_many_articles(articles)
   # Write a method that will take in an array of article hashes
@@ -54,7 +56,7 @@ def print_many_articles(articles)
 end
 
 def format_campus_location(campus)
-  "Flatiron #{campus["name"]}"
+  "Flatiron #{campus[:name]}"
 end
 
 def format_subject
@@ -80,7 +82,6 @@ def print_newsletter(number)
   print_many_articles(articles)
   puts format_footer(CAMPUS)
 
-  end
 end
 
 def run
